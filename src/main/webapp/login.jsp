@@ -4,21 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Login</title>
-    <!-- Bootstrap CSS -->
+    <title>Login Page</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tailwind CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --primary-gradient: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+            --secondary-gradient: linear-gradient(135deg, #2a2a2a 0%, #505050 100%);
         }
 
         body {
-            background: #f3f4f6;
+            background: #f8f8f8;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -64,31 +61,23 @@
             animation: moveBackground 30s linear infinite;
         }
 
-        @keyframes moveBackground {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(-50%, -50%);
-            }
-        }
-
         .custom-input {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
+            background: #f8f8f8;
+            border: 2px solid #e2e2e2;
             border-radius: 10px;
             padding: 12px 16px;
             transition: all 0.3s ease;
+            width: calc(100% - 40px);
         }
 
         .custom-input:focus {
-            border-color: #6366f1;
+            border-color: #000000;
             background: white;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
         }
 
         .custom-btn {
-            background: var(--primary-gradient);
+            background: #000000;
             color: white;
             border-radius: 10px;
             padding: 12px 24px;
@@ -98,20 +87,38 @@
         }
 
         .custom-btn:hover {
+            background: #333333;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .input-icon {
+        .input-icon-wrapper {
             position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
         }
 
-        .input-icon i {
+        .input-icon-wrapper i {
             position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
+            right: 12px;
+            color: #666666;
+            cursor: pointer;
+        }
+
+        #togglePassword {
+            right: 12px;
+            cursor: pointer;
+            color: #666666;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-50%, -50%);
+            }
         }
     </style>
 </head>
@@ -119,36 +126,53 @@
 <div class="login-container">
     <div class="form-side">
         <div class="mb-8">
-            <h2 class="text-3xl font-bold mb-2 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-                Welcome Back!</h2>
+            <h2 class="text-3xl font-bold mb-2 text-black">Welcome Back!</h2>
             <p class="text-gray-600">Sign in to continue your journey</p>
         </div>
         <form action="login-page" method="POST">
-            <div class="mb-4 input-icon">
-                <input type="text" name="username" placeholder="Username" class="custom-input w-full">
+            <div class="input-icon-wrapper">
+                <input type="text" name="username" placeholder="Username" class="custom-input">
                 <i class="fas fa-user"></i>
             </div>
-            <div class="mb-4 input-icon">
-                <input type="password" name="password" placeholder="Password" class="custom-input w-full">
+            <div class="input-icon-wrapper">
+                <input type="password" name="password" id="password" placeholder="Password" class="custom-input">
                 <i class="fas fa-lock"></i>
+                <i class="fas fa-eye" id="togglePassword" onclick="togglePasswordVisibility()"></i>
             </div>
             <div class="mb-4">
                 <button type="submit" class="custom-btn w-full">Sign In</button>
             </div>
             <div class="text-sm text-gray-600">
-                Don’t have an account? <a href="signup.jsp" class="text-indigo-500">Register here</a>.
+                Don't have an account? <a href="signup.jsp" class="text-black hover:text-gray-600">Register here</a>.
             </div>
         </form>
     </div>
     <div class="image-side">
         <div>
             <h2 class="text-4xl font-bold mb-4">Discover Greatness</h2>
-            <p class="text-lg">Join us and unlock your potential. We’re excited to have you!</p>
+            <p class="text-lg">Join us and unlock your potential. We're excited to have you!</p>
         </div>
     </div>
 </div>
-<!-- Scripts -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordField = document.getElementById('password');
+        var toggleIcon = document.getElementById('togglePassword');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        }
+    }
+</script>
 </body>
 </html>

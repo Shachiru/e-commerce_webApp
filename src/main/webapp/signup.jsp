@@ -4,21 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Signup</title>
-    <!-- Bootstrap CSS -->
+    <title>Signup Page</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tailwind CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            --secondary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --primary-gradient: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+            --secondary-gradient: linear-gradient(135deg, #2a2a2a 0%, #505050 100%);
         }
 
         body {
-            background: #f3f4f6;
+            background: #f8f8f8;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -64,27 +61,22 @@
             animation: moveBackground 30s linear infinite;
         }
 
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-50%, -50%); }
-        }
-
         .custom-input {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
+            background: #f8f8f8;
+            border: 2px solid #e2e2e2;
             border-radius: 10px;
             padding: 7px 16px;
             transition: all 0.3s ease;
         }
 
         .custom-input:focus {
-            border-color: #6366f1;
+            border-color: #000000;
             background: white;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
         }
 
         .custom-btn {
-            background: var(--primary-gradient);
+            background: #000000;
             color: white;
             border-radius: 10px;
             padding: 12px 24px;
@@ -94,13 +86,14 @@
         }
 
         .custom-btn:hover {
+            background: #333333;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .social-btn {
             background: white;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #e2e2e2;
             border-radius: 10px;
             padding: 9px;
             transition: all 0.3s ease;
@@ -111,20 +104,33 @@
         }
 
         .social-btn:hover {
-            background: #f8fafc;
+            background: #f8f8f8;
             transform: translateY(-2px);
-        }
-
-        .input-icon {
-            position: relative;
+            border-color: #000000;
         }
 
         .input-icon i {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
+            color: #666666;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-50%, -50%); }
+        }
+
+        /* Custom checkbox styles */
+        input[type="checkbox"] {
+            accent-color: #000000;
+        }
+
+        /* Link styles */
+        a {
+            color: #000000;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #404040;
         }
     </style>
 </head>
@@ -139,13 +145,13 @@
 
     <div class="form-side">
         <div class="mb-8">
-            <h2 class="text-3xl font-bold mb-2 bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">Create Account</h2>
+            <h2 class="text-3xl font-bold mb-2 text-black">Create Account</h2>
             <p class="text-gray-600">Join our community and start your journey!</p>
         </div>
 
         <div class="flex gap-4 mb-8">
             <button class="social-btn flex-1">
-                <i class="fab fa-google text-red-500"></i>
+                <i class="fab fa-google text-gray-700"></i>
                 <span class="text-gray-700">Google</span>
             </button>
             <button class="social-btn flex-1">
@@ -160,26 +166,28 @@
         </div>
 
         <form action="signup-page" method="post" id="signupForm" class="space-y-6">
-            <div class="input-icon">
+            <div class="input-icon relative">
                 <input type="text" name="fullName" placeholder="Full Name" class="custom-input w-full" required>
-                <i class="far fa-user"></i>
+                <i class="far fa-user absolute right-4 top-1/2 transform -translate-y-1/2"></i>
             </div>
 
-            <div class="input-icon">
+            <div class="input-icon relative">
                 <input type="email" name="email" placeholder="Email Address" class="custom-input w-full" required>
-                <i class="far fa-envelope"></i>
+                <i class="far fa-envelope absolute right-4 top-1/2 transform -translate-y-1/2"></i>
             </div>
 
-            <div class="input-icon">
-                <input type="password" name="password" placeholder="Password" class="custom-input w-full" required>
-                <i class="far fa-lock-alt"></i>
+            <div class="input-icon relative">
+                <input type="password" name="password" id="password" placeholder="Password" class="custom-input w-full" required>
+                <button type="button" id="togglePassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600" onclick="togglePasswordVisibility()">
+                    <i class="far fa-eye"></i>
+                </button>
             </div>
 
             <div class="flex items-center gap-2">
-                <input type="checkbox" name="terms" id="terms" class="rounded border-gray-300 text-indigo-500 focus:ring-indigo-500">
+                <input type="checkbox" name="terms" id="terms" class="rounded border-gray-300">
                 <label for="terms" class="text-sm text-gray-600">
-                    I agree to the <a href="#" class="text-indigo-500 hover:text-indigo-600">Terms</a> and
-                    <a href="#" class="text-indigo-500 hover:text-indigo-600">Privacy Policy</a>
+                    I agree to the <a href="#" class="hover:text-gray-600">Terms</a> and
+                    <a href="#" class="hover:text-gray-600">Privacy Policy</a>
                 </label>
             </div>
 
@@ -189,7 +197,7 @@
 
             <p class="text-center text-gray-600">
                 Already have an account?
-                <a href="login.jsp" class="text-indigo-500 hover:text-indigo-600 font-medium">Sign in</a>
+                <a href="login.jsp" class="hover:text-gray-600 font-medium">Sign in</a>
             </p>
         </form>
     </div>
@@ -198,13 +206,23 @@
 <script>
     document.getElementById('signupForm').addEventListener('submit', function(e) {
         e.preventDefault();
-
-        // Form submission logic can be handled by a backend servlet.
-        // Example: Sending a post request to /signup for processing
-
-        // Simulating a successful signup for now
         alert('Account created successfully!');
     });
+
+    function togglePasswordVisibility() {
+        var passwordField = document.getElementById('password');
+        var toggleIcon = document.getElementById('togglePassword').querySelector('i');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        }
+    }
 </script>
 </body>
 </html>
