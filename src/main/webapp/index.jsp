@@ -7,132 +7,20 @@
     <title>ElectroTech - Your Ultimate Electronics Store</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
-            --secondary-gradient: linear-gradient(135deg, #2a2a2a 0%, #505050 100%);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f8f8f8;
-        }
-
-        .navbar {
-            background: white !important;
-        }
-
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #000000 !important;
-            -webkit-text-fill-color: #000000 !important;
-        }
-
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('/api/placeholder/1920/600');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-        }
-
-        .feature-card {
-            transition: transform 0.3s;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background: white;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary {
-            background: #000000;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 24px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: #333333;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-outline-primary {
-            border: 2px solid #000000;
-            color: #000000;
-            border-radius: 10px;
-            padding: 10px 22px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-primary:hover {
-            background: #000000;
-            color: white;
-            border-color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .text-primary {
-            color: #000000 !important;
-        }
-
-        .bg-primary {
-            background: #000000 !important;
-        }
-
-        .bg-light {
-            background: #f8f8f8 !important;
-        }
-
-        .footer {
-            background: #1a1a1a;
-        }
-
-        .footer a {
-            color: #e2e8f0;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #ffffff;
-        }
-
-        .categoryDTO-card {
-            background: white;
-        }
-
-        .nav-link {
-            color: #404040 !important;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: #000000 !important;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand text-primary" href="#">
-            <i class="fas fa-bolt me-2"></i>ElectroTech
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-bolt"></i>ElectroTech
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Home</a>
                 </li>
@@ -142,25 +30,25 @@
                 <li class="nav-item">
                     <a class="nav-link" href="adminCategories.jsp">Categories</a>
                 </li>
-                <%--<li class="nav-item">
-                    <a class="nav-link" href="#">Deals</a>
-                </li>--%>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminUserLoad.jsp">Users</a>
                 </li>
             </ul>
-            <div class="d-flex align-items-center">
-                <form class="d-flex me-3">
-                    <input class="form-control me-2" type="search" placeholder="Search products...">
-                    <button class="btn btn-outline-primary" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-                <a href="login.jsp" class="btn btn-outline-primary me-2">
-                    <i class="fas fa-user me-1"></i> Login
+            <div class="search-container me-3">
+                <i class="fas fa-search search-icon"></i>
+                <input type="search" class="form-control" placeholder="Search products">
+            </div>
+            <div class="navbar-action-buttons">
+                <a href="login.jsp" class="btn btn-navbar btn-login">
+                    <i class="fas fa-user me-2"></i>Login
                 </a>
-                <a href="#" class="btn btn-primary">
-                    <i class="fas fa-shopping-cart me-1"></i> Cart (0)
+                <a href="#" class="btn btn-navbar btn-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <span class="cart-count">0</span>
                 </a>
             </div>
         </div>
@@ -181,8 +69,8 @@
         <h2 class="text-center mb-4">Popular Categories</h2>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="categoryDTO-card">
-                    <img src="" alt="Smartphones" class="img-fluid w-100">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&q=80&w=800" alt="Smartphones" class="img-fluid w-100">
                     <div class="card-body text-center p-3">
                         <h5 class="card-title">Smartphones</h5>
                         <a href="#" class="btn btn-outline-primary">View All</a>
@@ -190,8 +78,8 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="categoryDTO-card">
-                    <img src="/api/placeholder/400/300" alt="Laptops" class="img-fluid w-100">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&q=80&w=800" alt="Laptops" class="img-fluid w-100">
                     <div class="card-body text-center p-3">
                         <h5 class="card-title">Laptops</h5>
                         <a href="#" class="btn btn-outline-primary">View All</a>
@@ -199,8 +87,8 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="categoryDTO-card">
-                    <img src="/api/placeholder/400/300" alt="Accessories" class="img-fluid w-100">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1625961332771-3f40b0e2bdf9?auto=format&q=80&w=800" alt="Accessories" class="img-fluid w-100">
                     <div class="card-body text-center p-3">
                         <h5 class="card-title">Accessories</h5>
                         <a href="#" class="btn btn-outline-primary">View All</a>
@@ -217,7 +105,7 @@
         <div class="row g-4">
             <div class="col-md-3">
                 <div class="card feature-card h-100">
-                    <img src="assets/iphone15proresize.jpg" class="card-img-top" alt="Product 1">
+                    <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&q=80&w=800" class="card-img-top" alt="iPhone 15 Pro">
                     <div class="card-body">
                         <h5 class="card-title">iPhone 15 Pro</h5>
                         <p class="card-text text-muted">Latest Apple smartphone with advanced features</p>
@@ -228,7 +116,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card feature-card h-100">
-                    <img src="/api/placeholder/300/200" class="card-img-top" alt="Product 2">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&q=80&w=800" class="card-img-top" alt="MacBook Air M2">
                     <div class="card-body">
                         <h5 class="card-title">MacBook Air M2</h5>
                         <p class="card-text text-muted">Powerful laptop for professionals</p>
@@ -239,7 +127,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card feature-card h-100">
-                    <img src="/api/placeholder/300/200" class="card-img-top" alt="Product 3">
+                    <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&q=80&w=800" class="card-img-top" alt="AirPods Pro">
                     <div class="card-body">
                         <h5 class="card-title">AirPods Pro</h5>
                         <p class="card-text text-muted">Premium wireless earbuds</p>
@@ -250,7 +138,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card feature-card h-100">
-                    <img src="/api/placeholder/300/200" class="card-img-top" alt="Product 4">
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&q=80&w=800" class="card-img-top" alt="iPad Pro">
                     <div class="card-body">
                         <h5 class="card-title">iPad Pro</h5>
                         <p class="card-text text-muted">Versatile tablet for creativity</p>
@@ -290,7 +178,7 @@
     </div>
 </section>
 
-<section class="bg-primary text-white py-5">
+<section class="newsletter-section py-5">
     <div class="container text-center">
         <h3>Subscribe to Our Newsletter</h3>
         <p class="mb-4">Get the latest updates on new products and upcoming sales</p>
@@ -305,7 +193,7 @@
     </div>
 </section>
 
-<footer class="bg-dark text-light py-4">
+<footer class="py-4" id="contact">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -315,10 +203,10 @@
             <div class="col-md-3">
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-light">About Us</a></li>
-                    <li><a href="#" class="text-light">Contact</a></li>
-                    <li><a href="#" class="text-light">Shipping Policy</a></li>
-                    <li><a href="#" class="text-light">Privacy Policy</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
@@ -332,10 +220,10 @@
             <div class="col-md-3">
                 <h5>Follow Us</h5>
                 <div class="d-flex gap-3">
-                    <a href="#" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-twitter fa-lg"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
-                    <a href="#" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
                 </div>
             </div>
         </div>
