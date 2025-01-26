@@ -1,4 +1,4 @@
-package lk.ijse.aadassignment_01.Servlet.User;
+package lk.ijse.aadassignment_01.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

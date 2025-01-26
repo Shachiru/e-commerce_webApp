@@ -15,6 +15,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cartId;
 
+    @Column(nullable = false)
     private int qty;
 
     @ManyToOne

@@ -28,13 +28,10 @@
                     <a class="nav-link" href="customerCategory.jsp">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adminCategories.jsp">Categories</a>
+                    <a class="nav-link" href="#">Categories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="adminUserLoad.jsp">Users</a>
                 </li>
             </ul>
             <div class="search-container me-3">

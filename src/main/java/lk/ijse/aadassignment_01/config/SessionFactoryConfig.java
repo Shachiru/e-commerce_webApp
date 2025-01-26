@@ -1,5 +1,6 @@
 package lk.ijse.aadassignment_01.config;
 
+import lk.ijse.aadassignment_01.entity.Cart;
 import lk.ijse.aadassignment_01.entity.Category;
 import lk.ijse.aadassignment_01.entity.Product;
 import lk.ijse.aadassignment_01.entity.User;
@@ -14,9 +15,11 @@ public class SessionFactoryConfig {
     private SessionFactoryConfig() {
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
+
         configuration.addAnnotatedClass(Category.class);
         configuration.addAnnotatedClass(Product.class);
         configuration.addAnnotatedClass(User.class);
+        configuration.addAnnotatedClass(Cart.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }

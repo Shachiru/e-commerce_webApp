@@ -132,6 +132,26 @@
         a:hover {
             color: #404040;
         }
+
+        .role-radio {
+            display: none;
+        }
+
+        .role-label {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #e2e2e2;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .role-radio:checked + .role-label {
+            background: #000000;
+            color: white;
+            border-color: #000000;
+        }
     </style>
 </head>
 <body>
@@ -183,6 +203,17 @@
                 </button>
             </div>
 
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Select Role</label>
+                <div class="flex">
+                    <input type="radio" name="role" id="user" value="user" class="role-radio" required>
+                    <label for="user" class="role-label">User</label>
+
+                    <input type="radio" name="role" id="admin" value="admin" class="role-radio" required>
+                    <label for="admin" class="role-label">Admin</label>
+                </div>
+            </div>
+
             <div class="flex items-center gap-2">
                 <input type="checkbox" name="terms" id="terms" class="rounded border-gray-300">
                 <label for="terms" class="text-sm text-gray-600">
@@ -195,6 +226,8 @@
                 Create Account
             </button>
 
+            <button onclick="navigateToAdminPanel()">Go to Next Page</button>
+
             <p class="text-center text-gray-600">
                 Already have an account?
                 <a href="login.jsp" class="hover:text-gray-600 font-medium">Sign in</a>
@@ -206,7 +239,12 @@
 <script>
     document.getElementById('signupForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('Account created successfully!');
+
+        // Get selected role
+        const selectedRole = document.querySelector('input[name="role"]:checked').value;
+
+        // Simple alert to show selected role (replace with actual signup logic)
+        alert(`Creating account as ${selectedRole}`);
     });
 
     function togglePasswordVisibility() {
@@ -222,6 +260,9 @@
             toggleIcon.classList.remove('fa-eye-slash');
             toggleIcon.classList.add('fa-eye');
         }
+    }
+    function navigateToAdminPanel() {
+        window.location.href = "adminHomePage.jsp"; // Change to your target page
     }
 </script>
 </body>
