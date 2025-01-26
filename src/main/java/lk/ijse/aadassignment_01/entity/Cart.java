@@ -5,23 +5,25 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
-@Table(name = "product")
-public class Product {
+@Table(name = "cart")
+public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int productId;
-
-    private String productName;
+    private int cartId;
 
     private int qty;
 
-    private double unitPrice;
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User users;
 
     @ManyToOne
-    @JoinColumn(name = "categoryId",nullable = false)
-    private Category category;
+    @JoinColumn(name = "productId", nullable = false)
+    private Product product;
 }
+
+
