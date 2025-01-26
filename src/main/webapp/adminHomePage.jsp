@@ -34,13 +34,13 @@
                     <a class="nav-link active" href="#dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adminProducts.jsp">Products</a>
+                    <a class="nav-link" href="admin-products">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adminCategories.jsp">Categories</a>
+                    <a class="nav-link" href="admin-categories">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#users">Users</a>
+                    <a class="nav-link" href="admin-users">Users</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#orders">Orders</a>

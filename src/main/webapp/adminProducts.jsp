@@ -98,10 +98,13 @@
                     <a class="nav-link" href="adminHomePage.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="admin-products">Products</a>
+                    <a class="nav-link" href="admin-products">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin-categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-users">Users</a>
                 </li>
             </ul>
         </div>
