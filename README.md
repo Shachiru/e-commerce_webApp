@@ -60,3 +60,7 @@ This project is an e-commerce web application built using Java, Hibernate, and J
   [GitHub Profile](https://github.com/Shachiru)
 
 ---
+
+<p align="center">
+  &copy; 2025 Sasmith Manawadu
+</p>
