@@ -141,7 +141,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card feature-card h-100">
-                    <img src="images/ipadpro.jpg"
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&q=80&w=800"
                          class="card-img-top" alt="iPad Pro">
                     <div class="card-body">
                         <h5 class="card-title">iPad Pro</h5>
