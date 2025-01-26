@@ -1,3 +1,3 @@
 # Electro Tech 
 
-## E-commerce website for electronic products
+E-commerce website for electronic products
