@@ -226,8 +226,6 @@
                 Create Account
             </button>
 
-            <button onclick="navigateToAdminPanel()">Go to Next Page</button>
-
             <p class="text-center text-gray-600">
                 Already have an account?
                 <a href="login.jsp" class="hover:text-gray-600 font-medium">Sign in</a>
@@ -260,9 +258,6 @@
             toggleIcon.classList.remove('fa-eye-slash');
             toggleIcon.classList.add('fa-eye');
         }
-    }
-    function navigateToAdminPanel() {
-        window.location.href = "adminHomePage.jsp"; // Change to your target page
     }
 </script>
 </body>

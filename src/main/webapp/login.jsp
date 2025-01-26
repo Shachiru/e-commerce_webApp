@@ -120,6 +120,12 @@
                 transform: translate(-50%, -50%);
             }
         }
+
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -129,6 +135,21 @@
             <h2 class="text-3xl font-bold mb-2 text-black">Welcome Back!</h2>
             <p class="text-gray-600">Sign in to continue your journey</p>
         </div>
+        <%-- Error Message Display --%>
+        <%
+            String error = request.getParameter("error");
+            if (error != null) {
+                String errorMessage = "";
+                if ("invalidCredentials".equals(error)) {
+                    errorMessage = "Invalid username or password. Please try again.";
+                } else if ("systemError".equals(error)) {
+                    errorMessage = "A system error occurred. Please try again later.";
+                }
+        %>
+        <div class="error-message" style="display: block;">
+            <%= errorMessage %>
+        </div>
+        <% } %>
         <form action="login-page" method="POST">
             <div class="input-icon-wrapper">
                 <input type="text" name="username" placeholder="Username" class="custom-input">
