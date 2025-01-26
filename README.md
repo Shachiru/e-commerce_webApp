@@ -62,5 +62,5 @@ This project is an e-commerce web application built using Java, Hibernate, and J
 ---
 
 <p align="center">
-  &copy; 2025 Sasmith Manawadu
+  &copy; 2025 Shachiru Rashmika
 </p>
