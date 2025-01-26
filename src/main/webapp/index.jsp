@@ -25,7 +25,7 @@
                     <a class="nav-link active" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="customerCategory.jsp">Products</a>
+                    <a class="nav-link" href="userCategories.jsp">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Categories</a>
